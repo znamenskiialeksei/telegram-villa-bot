@@ -1,4 +1,4 @@
-// src/services/paymentService.ts (ОБНОВЛЕННАЯ ВЕРСИЯ)
+// src/services/paymentService.ts (ОБНОВЛЕННАЯ ВЕРСИЯ - С FIRESTORE)
 
 import { Payment } from '../types';
 import {
@@ -8,10 +8,6 @@ import {
     updatePayment
 } from '../utils/firestore';
 
-/**
- * Создать платеж в Firestore.
- * @param paymentData Данные платежа (без id, createdAt, updatedAt).
- */
 export const createPayment = async (paymentData: Omit<Payment, 'id' | 'createdAt' | 'updatedAt'>): Promise<Payment> => {
     try {
         const newPayment = await savePayment(paymentData);
@@ -23,10 +19,6 @@ export const createPayment = async (paymentData: Omit<Payment, 'id' | 'createdAt
     }
 };
 
-/**
- * Получить все платежи из Firestore.
- * @returns Промис со списком платежей.
- */
 export const getAllPayments = async (): Promise<Payment[]> => {
     try {
         const allPayments = await getPaymentsFromFirestore();
@@ -37,11 +29,6 @@ export const getAllPayments = async (): Promise<Payment[]> => {
     }
 };
 
-/**
- * Найти платеж по ID в Firestore.
- * @param paymentId ID платежа.
- * @returns Промис с платежом или null.
- */
 export const getPaymentById = async (paymentId: string): Promise<Payment | null> => {
     try {
         const payment = await getPaymentByIdFromFirestore(paymentId);
@@ -52,14 +39,9 @@ export const getPaymentById = async (paymentId: string): Promise<Payment | null>
     }
 };
 
-/**
- * Обновить статус платежа в Firestore.
- * @param paymentId ID платежа.
- * @param status Новый статус.
- */
 export const updatePaymentStatus = async (paymentId: string, status: 'completed' | 'failed'): Promise<void> => {
     try {
-        await updatePayment(paymentId, { status: status });
+        await updatePayment(paymentId, { status: status, updatedAt: Date.now() });
         console.log(`Статус платежа с ID ${paymentId} обновлён на ${status} в Firestore.`);
     } catch (error) {
         console.error(`Ошибка при обновлении статуса платежа с ID ${paymentId} в Firestore:`, error);

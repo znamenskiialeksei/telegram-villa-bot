@@ -1,4 +1,4 @@
-// src/services/villaFormService.ts (ОБНОВЛЕННАЯ ВЕРСИЯ)
+// src/services/villaFormService.ts (ОБНОВЛЕННАЯ ВЕРСИЯ - С FIRESTORE)
 
 import { VillaForm } from '../types';
 import {
@@ -8,10 +8,6 @@ import {
     getVillaFormById as getVillaFormByIdFromFirestore
 } from '../utils/firestore';
 
-/**
- * Создать анкету виллы в Firestore.
- * @param formData Данные анкеты.
- */
 export const createVillaForm = async (formData: Omit<VillaForm, 'id' | 'createdAt' | 'updatedAt'>): Promise<VillaForm> => {
     try {
         const newForm = await saveVillaForm(formData);
@@ -23,10 +19,6 @@ export const createVillaForm = async (formData: Omit<VillaForm, 'id' | 'createdA
     }
 };
 
-/**
- * Получить все анкеты вилл из Firestore.
- * @returns Промис со списком анкет.
- */
 export const getAllVillaForms = async (): Promise<VillaForm[]> => {
     try {
         const allForms = await getAllVillaFormsFromFirestore();
@@ -37,11 +29,6 @@ export const getAllVillaForms = async (): Promise<VillaForm[]> => {
     }
 };
 
-/**
- * Обновить статус анкеты виллы в Firestore.
- * @param formId ID анкеты.
- * @param status Новый статус.
- */
 export const updateVillaFormStatus = async (formId: string, status: 'approved' | 'rejected'): Promise<void> => {
     try {
         await updateVillaForm(formId, { status: status, updatedAt: Date.now() });
@@ -52,11 +39,6 @@ export const updateVillaFormStatus = async (formId: string, status: 'approved' |
     }
 };
 
-/**
- * Получить анкету виллы по ID из Firestore.
- * @param formId ID анкеты.
- * @returns Промис с анкетой или null.
- */
 export const getVillaFormById = async (formId: string): Promise<VillaForm | null> => {
     try {
         const form = await getVillaFormByIdFromFirestore(formId);
@@ -66,7 +48,3 @@ export const getVillaFormById = async (formId: string): Promise<VillaForm | null
         return null;
     }
 };
-
-// Если вам нужна функция удаления анкеты виллы, ее также нужно добавить в firestore.ts
-// и затем реализовать здесь:
-// export const deleteVillaForm = async (formId: string): Promise<void> => { ... };
