@@ -1,0 +1,78 @@
+[
+  {
+    "id": "villa-zima-murmansk-1",
+    "name": "Зима",
+    "location": "Мурманск",
+    "price": 500,
+    "currency": "RUB",
+    "description": "Уютная вилла для зимнего отдыха.",
+    "photos": [
+      "AgACAgQAAxkBAAIDk2hqkRmJGVedtfLvnctHMNbDFpjgAAJIyTEbLzdQUxAVL_MTtJXAAQADAgADeQADNgQ",
+      "AgACAgQAAxkBAAID82hqnMYugv1VwZXo3E245PkdsVITAAJkyTEbLzdQU3k5Vf7hL16SAQADAgADeQADNgQ",
+      "AgACAgQAAxkBAAIC-Whqfnko6lJJtJo8avijXY16Jv1TAAIRyTEbLzdQU79FgeBQad6RAQADAgADeAADNgQ",
+      "AgACAgQAAxkBAAID92hqnNan8BVwpacuQgOfVjovGEkBAAJlyTEbLzdQU6frzV8fbFv-AQADAgADeAADNgQ",
+      "AgACAgQAAxkBAAIDl2hqkVVzO_RW6DwtJoNtKsHjJXg3AAJLyTEbLzdQU0B48YAzh6BEAQADAgADeQADNgQ"
+    ],
+    "restrictedDates": [],
+    "createdAt": 1721068800000
+  },
+  {
+    "id": "villa-osen-moscow-2",
+    "photos": [
+      "AgACAgQAAxkBAAIExGhqvmbZxiecDa7xa8didIjVB11oAAL3xTEbLzdYU2wkmDI-2182AQADAgADeAADNgQ",
+      "AgACAgQAAxkBAAIExmhqvm3t3UZkl2fIHwpfhol5edU1AAL4xTEbLzdYU9RSXTfOvFTOAQADAgADeAADNgQ",
+      "AgACAgQAAxkBAAIEyGhqvnPTRBtBedIEgSVlOB0q33q0AAL5xTEbLzdYU6XDLPCuwG56AQADAgADeAADNgQ",
+      "AgACAgQAAxkBAAIEymhqvn11cmPFlvcrJmUAAfRzQVyufQAC-8UxGy83WFNFgKApl1YkwQEAAwIAA3kAAzYE",
+      "AgACAgQAAxkBAAIEzGhqvoiAgcI04IpdpwH7oEHtt-obAAL8xTEbLzdYU6jHqafXD50YAQADAgADeQADNgQ"
+    ],
+    "name": "Осень",
+    "location": "Москва",
+    "price": 900,
+    "currency": "RUB",
+    "createdAt": 1721068800000
+  },
+  {
+    "id": "villa-turaman-dalyan-3",
+    "photos": [
+      "AgACAgQAAxkBAAIFBmhqyBO818yunSetZM1dC5jZ4tFvAAIGxjEbLzdYU3soPsGzFKsNAQADAgADeQADNgQ",
+      "AgACAgQAAxkBAAIFCGhqyC-nMllkuHudZqavqPpkSsXIAAIHxjEbLzdYUyY0goeURseWAQADAgADeQADNgQ",
+      "AgACAgQAAxkBAAIFCmhqyEuE4ZrvGv0whnYoe2l6UhRsAAIJxjEbLzdYU35bUSCKb7PmAQADAgADeQADNgQ",
+      "AgACAgQAAxkBAAIFDGhqyHciefVQ9wABWBu7UKNc-Kn0AAMLxjEbLzdYUxdkLmTGbLuIAQADAgADeQADNgQ",
+      "AgACAgQAAxkBAAIFDmhqyJE_NWrQq6yOaET5QTpw5c2NAAIMxjEbLzdYU263dvB5Ae3-AQADAgADeQADNgQ"
+    ],
+    "name": "Villa Turaman",
+    "location": "Dalyan",
+    "price": 400,
+    "currency": "USD",
+    "createdAt": 1721068800000
+  },
+  {
+    "id": "villa-vesna-sochi-4",
+    "photos": [
+      "AgACAgQAAxkBAAIFnWhq21nT_tzgmEVUJF1AdeuUONzDAAIcxjEbLzdYUyjFaW-iEk5-AQADAgADeQADNgQ",
+      "AgACAgQAAxkBAAIFn2hq22Rv4iPiKQABFogLTKdiwRnw6AACHcYxGy83WFOerxbXShvDMwEAAwIAA3kAAzYE",
+      "AgACAgQAAxkBAAIFoWhq228I1UxJovIStC9T0CefFTWcAAIexjEbLzdYU9Il-llqQy_XAQADAgADeQADNgQ",
+      "AgACAgQAAxkBAAIFo2hq23T_9dcPwAfG6RawUERGfNV1AAIfxjEbLzdYU0UmITNeiMSdAQADAgADeQADNgQ",
+      "AgACAgQAAxkBAAIFpWhq23knaXztfUYRBDiZDZSp_RpLAAIgxjEbLzdYU6Mi6pm4jF8MAQADAgADeQADNgQ"
+    ],
+    "name": "Весна",
+    "location": "Сочи",
+    "price": 800,
+    "currency": "USD",
+    "createdAt": 1721068800000
+  },
+  {
+    "id": "villa-zima-apatity-5",
+    "photos": [
+      "AgACAgQAAxkBAAIFwGhq3RMzmoGD02BTXrqYvLJHPNIVAAIlxjEbLzdYU2KtL0YhGhV6AQADAgADeQADNgQ",
+      "AgACAgQAAxkBAAIFwmhq3RM4e1KSW6sjxk8y4wIvoaovAAImxjEbLzdYUy359jTD1TnSAQADAgADeQADNgQ",
+      "AgACAgQAAxkBAAIF3mhq4nJ84hHfWtnQeXqh1Ict3Sc-AAI8xjEbLzdYU8tfwGV6s24oAQADAgADeQADNgQ",
+      "AgACAgQAAxkBAAIF32hq4nLZd-b4knUuheU1kIZsHaZoAAI7xjEbLzdYUwNCCdk3xHTHAQADAgADeQADNgQ"
+    ],
+    "name": "Зима",
+    "location": "Апатиты",
+    "price": 700,
+    "currency": "USD",
+    "createdAt": 1721068800000
+  }
+]

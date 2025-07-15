@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "ES2021",
+    "module": "CommonJS",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist",
+    "rootDir": "./", // <-- ИЗМЕНЕНИЕ: Теперь корневая директория проекта
+    "resolveJsonModule": true,
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/types"
+    ],
+    "moduleResolution": "node",
+    "sourceMap": true
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.json", // Включать все .json файлы из src
+    "src/types/global.d.ts" // Убедитесь, что файл включен
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "sessions.json",
+    "firestorekey.json"
+  ]
+}
