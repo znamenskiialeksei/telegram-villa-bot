@@ -1,4 +1,4 @@
-// src/services/villaFormService.ts (ОБНОВЛЕННАЯ ВЕРСИЯ - С FIRESTORE)
+// src/services/villaFormService.ts
 
 import { VillaForm } from '../types';
 import {
@@ -14,7 +14,7 @@ export const createVillaForm = async (formData: Omit<VillaForm, 'id' | 'createdA
         console.log(`Анкета виллы с ID ${newForm.id} успешно создана в Firestore.`);
         return newForm;
     } catch (error) {
-        console.error('Ошибка при создании анкеты виллы в Firestore:', error);
+    console.error('Ошибка при создании анкеты виллы в Firestore:', error);
         throw new Error('Не удалось создать анкету виллы.');
     }
 };

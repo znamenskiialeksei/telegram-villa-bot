@@ -1,6 +1,6 @@
-// src/services/requestService.ts (ОБНОВЛЕННАЯ ВЕРСИЯ - С FIRESTORE)
+// src/services/requestService.ts
 
-import { Booking } from '../types';
+import { Booking } from '../types'; // Используем Booking из types.ts
 import {
     saveBooking, // Для создания новой заявки/бронирования
     getAllBookings, // Для получения всех заявок/бронирований

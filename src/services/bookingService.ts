@@ -1,4 +1,4 @@
-// src/services/bookingService.ts (ОБНОВЛЕННАЯ ВЕРСИЯ)
+// src/services/bookingService.ts
 
 import { Booking } from '../types';
 import {
@@ -60,7 +60,7 @@ export const getBookingById = async (bookingId: string): Promise<Booking | null>
  */
 export const updateBookingStatus = async (bookingId: string, status: 'pending' | 'accepted' | 'rejected' | 'completed' | 'cancelled'): Promise<void> => {
     try {
-        await updateBooking(bookingId, { status: status });
+        await updateBooking(bookingId, { status: status, updatedAt: Date.now() });
         console.log(`Статус бронирования с ID ${bookingId} обновлён на ${status} в Firestore.`);
     } catch (error) {
         console.error(`Ошибка при обновлении статуса бронирования с ID ${bookingId} в Firestore:`, error);

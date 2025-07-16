@@ -1,4 +1,4 @@
-// src/services/calendarService.ts (ОБНОВЛЕННАЯ ВЕРСИЯ - С FIRESTORE)
+// src/services/calendarService.ts
 
 import { CalendarEntry } from '../types';
 import {
@@ -7,6 +7,10 @@ import {
     updateCalendarEntry as updateCalendarEntryInFirestore
 } from '../utils/firestore';
 
+/**
+ * Добавить запись в календарь в Firestore.
+ * @param entryData Данные записи календаря (без id, createdAt, updatedAt).
+ */
 export const addCalendarEntry = async (entryData: Omit<CalendarEntry, 'id' | 'createdAt' | 'updatedAt'>): Promise<CalendarEntry> => {
     try {
         const newEntry = await saveCalendarEntry(entryData);
@@ -18,6 +22,11 @@ export const addCalendarEntry = async (entryData: Omit<CalendarEntry, 'id' | 'cr
     }
 };
 
+/**
+ * Получить записи календаря для виллы из Firestore.
+ * @param villaId ID виллы.
+ * @returns Промис со списком записей календаря.
+ */
 export const getCalendarEntries = async (villaId: string): Promise<CalendarEntry[]> => {
     try {
         const entries = await getCalendarEntriesByVillaId(villaId);
@@ -28,6 +37,11 @@ export const getCalendarEntries = async (villaId: string): Promise<CalendarEntry
     }
 };
 
+/**
+ * Обновить статус записи в календаре в Firestore.
+ * @param entryId ID записи календаря.
+ * @param updates Поля для обновления.
+ */
 export const updateCalendarEntry = async (entryId: string, updates: Partial<CalendarEntry>): Promise<void> => {
     try {
         await updateCalendarEntryInFirestore(entryId, updates);
