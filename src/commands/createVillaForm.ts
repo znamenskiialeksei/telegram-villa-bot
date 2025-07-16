@@ -2,17 +2,14 @@
 
 import { Context } from 'telegraf';
 import { isAdmin } from '../middlewares/auth';
-import { saveVilla, getVillas } from '../utils/firestore';
-import { MyContext, Villa } from '../types';
+import { saveVilla, getVillas } from '../utils/firestore'; // Импортируем saveVilla и getVillas
+import { MyContext, Villa } from '../types'; // Импортируем MyContext и Villa
 
 const validateVillaData = (name: string, location: string, price: string): boolean => {
     if (!name || !location || isNaN(Number(price))) return false;
     return true;
 };
 
-/**
- * Команда для создания анкеты виллы.
- */
 export const createVillaFormCommand = async (ctx: MyContext) => {
     try {
         if (!(await isAdmin(ctx))) {
@@ -44,12 +41,13 @@ export const createVillaFormCommand = async (ctx: MyContext) => {
                 return;
             }
 
-            const newVilla: Omit<Villa, 'id' | 'createdAt' | 'updatedAt'> = {
+            // ИСПРАВЛЕНИЕ ТИПА newVilla
+            const newVilla: Omit<Villa, 'id' | 'createdAt' | 'updatedAt'> = { // Оставили только те, которые генерируются базой
                 name,
                 location,
                 price,
-                currency: 'USD', // Заглушка, если не запрашивается пошагово
-                photos: []       // Заглушка, если не запрашиваются пошагово
+                currency: 'USD', // Здесь нужно указать валюту, если она не запрашивается пошагово
+                photos: []       // Инициализируем массив фото
             };
 
             await saveVilla(newVilla);

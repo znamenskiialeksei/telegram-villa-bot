@@ -19,13 +19,14 @@ initializeApp({
 });
 
 export const firestore = getFirestore();
+// ... весь остальной код файла firestore.ts (без изменений) ...
 
 // Объявляем ссылки на коллекции Firestore
 export const villasCollection = firestore.collection('villas');
 export const bookingsCollection = firestore.collection('bookings');
-export const paymentsCollection = firestore.collection('payments'); // НОВАЯ КОЛЛЕКЦИЯ
-export const calendarEntriesCollection = firestore.collection('calendarEntries'); // НОВАЯ КОЛЛЕКЦИЯ
-export const villaFormsCollection = firestore.collection('villaForms'); // НОВАЯ КОЛЛЕКЦИЯ
+export const paymentsCollection = firestore.collection('payments');
+export const calendarEntriesCollection = firestore.collection('calendarEntries');
+export const villaFormsCollection = firestore.collection('villaForms');
 
 // --- РАБОТА С ВИЛЛАМИ ---
 export const getVillas = async (): Promise<Villa[]> => {

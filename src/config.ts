@@ -12,6 +12,7 @@ if (!process.env.ADMIN_ID) {
     throw new Error('Ошибка: Переменная окружения ADMIN_ID не задана. Укажите её в .env файле.');
 }
 
+// Новые проверки для Google API (если вы их используете)
 if (!process.env.FIREBASE_PROJECT_ID) {
     throw new Error('Ошибка: Переменная окружения FIREBASE_PROJECT_ID не задана в .env.');
 }
@@ -19,7 +20,7 @@ if (!process.env.GOOGLE_CLIENT_ID) {
     throw new Error('Ошибка: Переменная окружения GOOGLE_CLIENT_ID не задана в .env.');
 }
 if (!process.env.GOOGLE_CLIENT_SECRET) {
-    throw new Error('Ошибка: Переменная окружения GOOGLE_CLIENT_SECRET не задана в .env.');
+    throw new Error('Ошибка: Переменная окружения GOOGLE_CLIENT_SECRET не задана в .env.'); // <-- ИСПРАВЛЕНИЕ ЗДЕСЬ
 }
 if (!process.env.GOOGLE_REFRESH_TOKEN) {
     throw new Error('Ошибка: Переменная окружения GOOGLE_REFRESH_TOKEN не задана в .env.');

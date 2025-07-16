@@ -1,10 +1,10 @@
-// src/services/calendarService.ts
+// src/services/calendarService.ts (ОБНОВЛЕННАЯ ВЕРСИЯ)
 
 import { CalendarEntry } from '../types';
 import {
     saveCalendarEntry,
     getCalendarEntriesByVillaId,
-    updateCalendarEntry as updateCalendarEntryInFirestore
+    updateCalendarEntry as updateCalendarEntryInFirestore // Переименовываем
 } from '../utils/firestore';
 
 /**
@@ -45,9 +45,13 @@ export const getCalendarEntries = async (villaId: string): Promise<CalendarEntry
 export const updateCalendarEntry = async (entryId: string, updates: Partial<CalendarEntry>): Promise<void> => {
     try {
         await updateCalendarEntryInFirestore(entryId, updates);
-        console.log(`Статус записи календаря с ID ${entryId} успешно обновлен в Firestore.`);
+        console.log(`Запись календаря с ID ${entryId} успешно обновлена в Firestore.`);
     } catch (error) {
         console.error(`Ошибка при обновлении записи календаря с ID ${entryId} в Firestore:`, error);
         throw new Error('Не удалось обновить запись календаря.');
     }
 };
+
+// Если вам нужна функция удаления записи календаря, ее также нужно добавить в firestore.ts
+// и затем реализовать здесь:
+// export const deleteCalendarEntry = async (entryId: string): Promise<void> => { ... };

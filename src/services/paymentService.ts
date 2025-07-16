@@ -1,4 +1,4 @@
-// src/services/paymentService.ts
+// src/services/paymentService.ts (ОБНОВЛЕННАЯ ВЕРСИЯ)
 
 import { Payment } from '../types';
 import {
@@ -59,7 +59,7 @@ export const getPaymentById = async (paymentId: string): Promise<Payment | null>
  */
 export const updatePaymentStatus = async (paymentId: string, status: 'completed' | 'failed'): Promise<void> => {
     try {
-        await updatePayment(paymentId, { status: status, updatedAt: Date.now() });
+        await updatePayment(paymentId, { status: status });
         console.log(`Статус платежа с ID ${paymentId} обновлён на ${status} в Firestore.`);
     } catch (error) {
         console.error(`Ошибка при обновлении статуса платежа с ID ${paymentId} в Firestore:`, error);

@@ -2,14 +2,14 @@
 
 import { Context } from 'telegraf';
 import { isAdmin } from '../middlewares/auth';
+// import { sendNotification } from '../utils/notification'; // УДАЛЯЕМ ЭТОТ ИМПОРТ
 import { getBookingById, updateBooking } from '../utils/firestore'; // Обновляем импорт
-import { MyContext } from '../types'; // Добавляем импорт MyContext
 
 /**
  * Команда для подтверждения оплаты бронирования.
  * Отправляет уведомление пользователю после подтверждения.
  */
-export const confirmPaymentCommand = async (ctx: MyContext) => { // Используем MyContext
+export const confirmPaymentCommand = async (ctx: Context) => { // Возможно, лучше MyContext
     try {
         // Проверяем, является ли пользователь администратором
         if (!(await isAdmin(ctx))) {
@@ -41,15 +41,15 @@ export const confirmPaymentCommand = async (ctx: MyContext) => { // Исполь
                 return;
             }
 
-            // Обновляем статус бронирования на 'accepted'
-            await updateBooking(bookingId, { status: 'accepted', updatedAt: Date.now() }); // Обновляем статус и время обновления
+            // Обновляем статус бронирования на 'accepted' или 'completed'
+            await updateBooking(bookingId, { status: 'accepted' });
 
             const targetUserId = booking.userId;
             const messageToUser = `✅ Ваше бронирование виллы "${booking.villaName}" (ID: ${booking.id?.substring(0,6)}...) с ${booking.checkIn} по ${booking.checkOut} подтверждено!`;
 
             try {
                 // Отправка уведомления пользователю
-                await ctx.telegram.sendMessage(targetUserId, messageToUser);
+                await ctx.telegram.sendMessage(targetUserId, messageToUser); // ПРЯМОЕ ИСПОЛЬЗОВАНИЕ TELEGRAM API
                 ctx.reply(`Оплата для бронирования с ID ${bookingId} подтверждена, уведомление отправлено пользователю.`);
             } catch (error) {
                 console.error(`Ошибка при отправке уведомления пользователю ${targetUserId}:`, error);
